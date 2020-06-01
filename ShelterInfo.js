@@ -58,7 +58,7 @@ export default class ShelterData extends Component{
 
         componentDidMount = async () => {
             this.setData();
-            console.log('ShelterName from Map Callout\n' + this.props.route.params.item.shelterName);
+            console.log('ShelterName from Map Callout\n' + this.props.route.params.item);
           }
 
           componentWillUnmount = async () => {
@@ -70,7 +70,7 @@ export default class ShelterData extends Component{
           var lastColors = [{i1: this.state.i1},{i2: this.state.i2},{i3: this.state.i3}];
 
           try{
-            await AsyncStorage.setItem(this.props.route.params.item.shelterName, JSON.stringify(lastColors));
+            await AsyncStorage.setItem(this.props.route.params.item, JSON.stringify(lastColors));
             console.log('Colors saved!');
           }catch (error){
               console.log('Problems passing data' + error);
@@ -81,7 +81,7 @@ export default class ShelterData extends Component{
           var responseCopy =[];
     
           try {
-            response = await AsyncStorage.getItem(this.props.route.params.item.shelterName);
+            response = await AsyncStorage.getItem(this.props.route.params.item);
             if(response == null){
               response = [{i1: 0},{i2: 0},{i3: 0}];
             }else{

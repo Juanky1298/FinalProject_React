@@ -67,6 +67,7 @@ const styles = StyleSheet.create({
       marginVertical: 5,
       marginHorizontal: 16,
       backgroundColor: '#00ffae',
+      textAlign: 'center'
     },
   });
   
