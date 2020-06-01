@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import {View, Text, StyleSheet, SafeAreaView, FlatList, TouchableOpacity, AsyncStorage, RefreshControl} from 'react-native';
-import Constants from 'expo-constants';
 
 export default class Shelter extends Component{
 
@@ -58,7 +57,7 @@ export default class Shelter extends Component{
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: Constants.statusBarHeight,
+      backgroundColor: '#f3f9d2'
     },
     title: {
       justifyContent: 'center',
@@ -66,8 +65,9 @@ const styles = StyleSheet.create({
       padding: 20,
       marginVertical: 5,
       marginHorizontal: 16,
-      backgroundColor: '#00ffae',
-      textAlign: 'center'
+      backgroundColor: '#c0d684',
+      textAlign: 'center',
+      color: "#000000"
     },
   });
   

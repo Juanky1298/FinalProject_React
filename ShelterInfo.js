@@ -1,9 +1,8 @@
 import React,{Component} from 'react';
 import {StyleSheet, View, Text, SafeAreaView, Button, FlatList, AsyncStorage, RefreshControl, Alert, TouchableOpacity} from 'react-native';
 import Dialog from "react-native-dialog";
-import Constants from 'expo-constants';
 
-export default class ShelterData extends Component{
+export default class ShelterInfo extends Component{
 
   constructor(props){
     super(props);
@@ -130,7 +129,6 @@ export default class ShelterData extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: Constants.statusBarHeight,
     },
     button: {
         flex: 1,

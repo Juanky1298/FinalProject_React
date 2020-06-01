@@ -2,13 +2,24 @@ import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import {createMaterialBottomTabNavigator} from "@react-navigation/material-bottom-tabs";
 import {Icon} from 'react-native-elements';
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, useTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Map from './Map';
 import Shelter from './Shelter';
 import ShelterData from './ShelterData';
 import ShelterInfo from './ShelterInfo';
+
+const MyTheme = {
+  dark: false,
+  colors: {
+    primary: '#f3f9d2',
+    background: '#ffffff',
+    card: '#f3f9d2',
+    text: '#000000',
+    border: '#ffffff',
+  },
+};
 
 //https://reactnavigation.org/docs/stack-navigator
 const ShelterStack = createStackNavigator();
@@ -30,7 +41,7 @@ function ShelterStackNavigator() {
 const MapStack = createStackNavigator();
 function MapStackNavigator() {
   return(
-    <MapStack.Navigator initialRouteName='Shelter Locations' headerMode='float'>
+    <MapStack.Navigator initialRouteName='Shelter Locations' headerMode='screen'>
         <MapStack.Screen
           name='Shelter Locations'
           component={Map}
@@ -47,16 +58,18 @@ function MapStackNavigator() {
 const TabNav = createMaterialBottomTabNavigator();
 
 export default function AppContainer() {
+
+  const { colors } = useTheme();
+
   return(
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <TabNav.Navigator
         initialRouteName='ShelterScreen'
         tabBarOptions={{
         showLabel: true,
         shifting: true,
         activeColor: '#3d0b37' ,
-        inactiveColor: '#63264a',
-        barStyle:{backgroundColor: '#ffffff'},
+        inactiveColor: {color: colors.background},
         }}
       >
         <TabNav.Screen
@@ -65,15 +78,14 @@ export default function AppContainer() {
           options={{
           title: 'Shelters',
           tabBarLabel: 'Shelters',
-          // activeColor: '#f0edf6' ,
-          // inactiveColor: '#3e2465',
-          // barStyle:{backgroundColor: '#694fad'},
+          activeColor: '#f0edf6' ,
+          inactiveColor: {color: colors.background},
+          barStyle:{backgroundColor: '#694fad'},
             tabBarIcon:() =>(
               <View>
                 <Icon 
                 name={'home'}
                 size={25}
-                // style={{color: '#e23f5b'}}
                 />
               </View>
             )
@@ -84,15 +96,11 @@ export default function AppContainer() {
           options={{
             title: 'Map',
             tabBarLabel: 'Map',
-            // activeColor: '#a6cfb1',
-            // inactiveColor: '#d5b6a2',
-            // barStyle:{backgroundColor: '#c0d684'},
             tabBarIcon:() =>(
               <View>
                 <Icon 
                 name={'map'}
                 size={25}
-                // style={{color: '#f13ec4'}}
                 />
               </View>
             )

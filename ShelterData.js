@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import {StyleSheet, View, Text, SafeAreaView, Button, FlatList, AsyncStorage, RefreshControl, Alert, TouchableOpacity} from 'react-native';
 import Dialog from "react-native-dialog";
-import Constants from 'expo-constants';
 
 export default class ShelterData extends Component{
 
@@ -104,17 +103,29 @@ export default class ShelterData extends Component{
         <SafeAreaView style={styles.container}>
                 <TouchableOpacity onPress={this.itemStatus1} onLongPress={() => Alert.alert('Delete not implemented')}>
                     <View style={styles.title}>
-                <Text style={{backgroundColor: this.state.colors[this.state.i1], height: 30, fontSize: 20, textAlign: 'center'}}>{this.state.DATA[0]}</Text>
+                <Text 
+                style={{
+                  backgroundColor: this.state.colors[this.state.i1],
+                   height: 30, fontSize: 20, textAlign: 'center', 
+                   borderWidth: 1, borderColor: '#000000'}}>{this.state.DATA[0]}
+                   </Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.itemStatus2} onLongPress={() => Alert.alert('Delete not implemented')}>
                     <View style={styles.title}>
-                <Text style={{backgroundColor: this.state.colors[this.state.i2], height: 30, fontSize: 20, textAlign: 'center'}}>{this.state.DATA[1]}</Text>
+                <Text 
+                style={{
+                  backgroundColor: this.state.colors[this.state.i2], 
+                  height: 30, fontSize: 20, textAlign: 'center', 
+                  borderWidth: 1, borderColor: '#000000'}}>{this.state.DATA[1]}</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.itemStatus3} onLongPress={() => Alert.alert('Delete not implemented')}>
                     <View style={styles.title}>
-                <Text style={{backgroundColor: this.state.colors[this.state.i3], height: 30, fontSize: 20, textAlign: 'center'}}>{this.state.DATA[2]}</Text>
+                <Text 
+                style={{backgroundColor: this.state.colors[this.state.i3], 
+                  height: 30, fontSize: 20, textAlign: 'center', 
+                  borderWidth: 1, borderColor: '#000000'}}>{this.state.DATA[2]}</Text>
                     </View>
                 </TouchableOpacity>
                 <View style={{justifyContent: 'flex-end', flex: 1, marginBottom: 10, width: '40%', marginLeft: '30%'}}>
@@ -130,7 +141,7 @@ export default class ShelterData extends Component{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: Constants.statusBarHeight,
+        backgroundColor: '#f3f9d2'
     },
     button: {
         flex: 1,
@@ -141,6 +152,8 @@ const styles = StyleSheet.create({
         padding: 20,
         marginVertical: 5,
         marginHorizontal: 5,
+      },
+      item:{
         
       },
 }) 
